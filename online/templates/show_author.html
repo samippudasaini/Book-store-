@@ -1,0 +1,48 @@
+
+{ {% extends 'lauout.html' %}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    {% block content %} 
+  <h1>Author List</h1>
+<hr>
+<table width="80%" border="3px">
+    <tr>
+        <th>S.N</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+    
+    {% for author in authors %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ author.name }}</td>
+        <td>{{ author.phone }}</td>
+        <td>{{ author.email }}</td>
+        <td>
+            {% if author.image %}
+            <img src="{{ author.image.url }}" width="100">
+                {% comment %} { % else % }
+                    No Image {% endcomment %}
+            {% endif %}
+    <td>
+        <a href="">Edit</a>
+        <a href="">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <blockquote>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'add_author' %}">Add Author</a>  &nbsp; | &nbsp;
+        <a href="{% url 'show_author' %}">Show Author</a>  &nbsp; | &nbsp;
+         {% comment %} <a href="{% url 'add_category' %}">add category</a>  &nbsp; | &nbsp;  {% endcomment %}
+        <b><hr></b> 
+        <h1>Book store</h1>
+        <hr>
+        {% if message %}
+        {% for message in messages %}
+                {{ meaagaes }}
+            {% endfor %}
+        {% endif %}
+        
+        {% block content %} 
+        {% endblock %}
+        <hr>
+        <footer>
+            <p>&copy;2020- Book store</p>
+        </footer>
+    </blockquote>
+</body>
+</html>
